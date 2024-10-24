@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Anasayfa</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="icon" href="icons8-youtube-48.png" type="image/x-icon">
+    <style>
+        body {
+            background-color: #f9f9f9;
+        }
+        .video-card {
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #fff; /* Arka plan rengi */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Gölgelendirme */
+            cursor: pointer; /* Tıklanabilir hale getir */
+        }
+        .video-card img {
+            width: 100%;
+            height: 300px; /* Görüntü yüksekliği */
+            object-fit: cover; /* Görüntü oranını koruma */
+        }
+        .video-card .card-body {
+            padding: 10px; /* İçerik alanı */
+        }
+        .video-card h5 {
+            font-size: 1.25rem; /* Başlık boyutu */
+            margin: 0; /* Başlık marjını sıfırlama */
+        }
+        .video-card p {
+            margin: 5px 0 0; /* Açıklama marjları */
+            color: #606060; /* Açıklama rengi */
+            font-size: 0.85rem; /* Açıklama boyutu */
+        }
+        .search-container {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            max-width: 600px; /* Arama çubuğu genişliği */
+            margin: 0 auto; /* Ortaya yerleştir */
+        }
+        .search-input {
+            border-radius: 24px;
+            border: 1px solid #ccc;
+            padding: 10px 20px;
+            width: 100%;
+        }
+        .search-button {
+            border: none;
+            background-color: #f8f8f8;
+            border-radius: 0 24px 24px 0;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+        .microphone-icon {
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        .sidebar {
+            width: 220px; /* Sol bölüm genişliği */
+            height: 100vh; /* Yükseklik */
+            background-color: #fff; /* Arka plan rengi */
+            border-right: 1px solid #ddd; /* Kenar çizgisi */
+        }
+        .sidebar a {
+            padding: 15px 20px;
+            color: #333;
+            text-decoration: none;
+        }
+        .sidebar a:hover {
+            background-color: #f0f0f0; /* Hover rengi */
+        }
+        .sidebar .active {
+            background-color: #e0e0e0; /* Aktif link rengi */
+        }
+        .video-row {
+            display: flex; /* Flex düzenleme */
+            flex-wrap: wrap; /* Kırılma */
+            justify-content: flex-start; /* Sol hizalama */
+            margin-right: 0; /* Sağ boşluk kaldırıldı */
+        }
+        .video-col {
+            flex: 0 0 23%; /* Kartların genişliği */
+            max-width: 23%; /* Maksimum genişlik */
+            margin-right: 20px; /* Kartlar arası sağ boşluk */
+        }
+        .video-col:nth-child(4n) {
+            margin-right: 0; /* Her 4. kartta sağ boşluk kaldırıldı */
+        }
+        .container {
+            max-width: 100%; /* Maksimum genişlik %100 yapıldı */
+            margin: 0 auto; /* Ortaya yerleştir */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Üst Menü -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" alt="YouTube Logo" height="30">
+        </a>
+        <div class="collapse navbar-collapse justify-content-center">
+            <div class="search-container">
+                <input type="text" class="form-control search-input" placeholder="Ara" aria-label="Search">
+                <button class="btn search-button" type="submit">
+                    <img src="https://img.icons8.com/ios-filled/24/000000/search--v1.png" alt="Ara" />
+                </button>
+                <img src="https://img.icons8.com/ios/50/000000/microphone.png" alt="Mikrofon" class="microphone-icon" width="30">
+            </div>
+        </div>
+        <div class="ml-auto">
+            <button class="btn btn-outline-secondary">Giriş Yap</button>
+            <button class="btn btn-outline-secondary">Kayıt Ol</button>
+        </div>
+    </nav>
+
+    <div class="d-flex">
+        <!-- Yan Menü -->
+        <nav class="sidebar">
+            <a class="nav-link active" href="#">Anasayfa</a>
+            <a class="nav-link" href="#">Trendler</a>
+            <a class="nav-link" href="#">Abonelikler</a>
+            <a class="nav-link" href="#">Kitaplık</a>
+            <a class="nav-link" href="#">Geçmiş</a>
+            <a class="nav-link" href="#">Oynatma Listeleri</a>
+        </nav>
+
+        <!-- İçerik Alanı -->
+        <main class="container mt-2" style="margin-left: 0; flex-grow: 1;">
+            <h2>Önerilen Videolar</h2>
+            <div class="video-row">
+                <!-- Video Kartları -->
+                <div class="video-col">
+                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="video-card">
+                        <img src="https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="Video 1">
+                        <div class="card-body">
+                            <h5>Gangnam Style Dans</h5>
+                            <p>İzlenme: 1M | Yüklenme: 3 gün önce</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="video-col">
+                    <a href="https://www.youtube.com/watch?v=9bZkp7q19f0" target="_blank" class="video-card">
+                        <img src="https://i.ytimg.com/vi/9bZkp7q19f0/hqdefault.jpg" alt="Video 2">
+                        <div class="card-body">
+                            <h5>Gangnam Style</h5>
+                            <p>İzlenme: 3M | Yüklenme: 1 hafta önce</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="video-col">
+                    <a href="https://www.youtube.com/watch?v=3JZ_D3ELwOQ" target="_blank" class="video-card">
+                        <img src="https://i.ytimg.com/vi/3JZ_D3ELwOQ/hqdefault.jpg" alt="Video 3">
+                        <div class="card-body">
+                            <h5>Despacito Dans</h5>
+                            <p>İzlenme: 2.5M | Yüklenme: 1 ay önce</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="video-col">
+                    <a href="https://www.youtube.com/watch?v=ltrMfT4Qz5Y" target="_blank" class="video-card">
+                        <img src="https://i.ytimg.com/vi/ltrMfT4Qz5Y/hqdefault.jpg" alt="Video 4">
+                        <div class="card-body">
+                            <h5>Shake It Off Dans</h5>
+                            <p>İzlenme: 500K | Yüklenme: 2 ay önce</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="video-col">
+                    <a href="https://www.youtube.com/watch?v=e-ORhEE9VVg" target="_blank" class="video-card">
+                        <img src="https://i.ytimg.com/vi/e-ORhEE9VVg/hqdefault.jpg" alt="Video 5">
+                        <div class="card-body">
+                            <h5>Uptown Funk</h5>
+                            <p>İzlenme: 4M | Yüklenme: 5 gün önce</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="video-col">
+                    <a href="https://www.youtube.com/watch?v=3fumBcKC6RE" target="_blank" class="video-card">
+                        <img src="https://i.ytimg.com/vi/3fumBcKC6RE/hqdefault.jpg" alt="Video 6">
+                        <div class="card-body">
+                            <h5>Happy - Pharrell Williams</h5>
+                            <p>İzlenme: 1.5M | Yüklenme: 3 hafta önce</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="video-col">
+                    <a href="https://www.youtube.com/watch?v=7wtA0g5-YC0" target="_blank" class="video-card">
+                        <img src="https://i.ytimg.com/vi/7wtA0g5-YC0/hqdefault.jpg" alt="Video 7">
+                        <div class="card-body">
+                            <h5>Shallow - Lady Gaga</h5>
+                            <p>İzlenme: 1M | Yüklenme: 1 hafta önce</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="video-col">
+                    <a href="https://www.youtube.com/watch?v=hdzC1Wn1c_s" target="_blank" class="video-card">
+                        <img src="https://i.ytimg.com/vi/hdzC1Wn1c_s/hqdefault.jpg" alt="Video 8">
+                        <div class="card-body">
+                            <h5>Shape of You - Ed Sheeran</h5>
+                            <p>İzlenme: 3M | Yüklenme: 2 hafta önce</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="video-col">
+                    <a href="https://www.youtube.com/watch?v=Zi_XLOBDo_Y" target="_blank" class="video-card">
+                        <img src="https://i.ytimg.com/vi/Zi_XLOBDo_Y/hqdefault.jpg" alt="Video 9">
+                        <div class="card-body">
+                            <h5>Believer - Imagine Dragons</h5>
+                            <p>İzlenme: 2M | Yüklenme: 1 ay önce</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="video-col">
+                    <a href="https://www.youtube.com/watch?v=0KSOMA3QBU0" target="_blank" class="video-card">
+                        <img src="https://i.ytimg.com/vi/0KSOMA3QBU0/hqdefault.jpg" alt="Video 10">
+                        <div class="card-body">
+                            <h5>Rolling in the Deep - Adele</h5>
+                            <p>İzlenme: 800K | Yüklenme: 3 gün önce</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="video-col">
+                    <a href="https://www.youtube.com/watch?v=2VYQns-O6lA" target="_blank" class="video-card">
+                        <img src="https://i.ytimg.com/vi/2VYQns-O6lA/hqdefault.jpg" alt="Video 11">
+                        <div class="card-body">
+                            <h5>Thinking Out Loud - Ed Sheeran</h5>
+                            <p>İzlenme: 1.2M | Yüklenme: 2 hafta önce</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="video-col">
+                    <a href="https://www.youtube.com/watch?v=KQ6zrAl-e4I" target="_blank" class="video-card">
+                        <img src="https://i.ytimg.com/vi/KQ6zrAl-e4I/hqdefault.jpg" alt="Video 12">
+                        <div class="card-body">
+                            <h5>Someone You Loved - Lewis Capaldi</h5>
+                            <p>İzlenme: 1.1M | Yüklenme: 3 hafta önce</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="video-col">
+                    <a href="https://www.youtube.com/watch?v=PtGq5InW15M" target="_blank" class="video-card">
+                        <img src="https://i.ytimg.com/vi/PtGq5InW15M/hqdefault.jpg" alt="Video 13">
+                        <div class="card-body">
+                            <h5>Dance Monkey - Tones and I</h5>
+                            <p>İzlenme: 4M | Yüklenme: 1 ay önce</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="video-col">
+                    <a href="https://www.youtube.com/watch?v=6jD4L2cK7Xg" target="_blank" class="video-card">
+                        <img src="https://i.ytimg.com/vi/6jD4L2cK7Xg/hqdefault.jpg" alt="Video 14">
+                        <div class="card-body">
+                            <h5>Don't Start Now - Dua Lipa</h5>
+                            <p>İzlenme: 3.5M | Yüklenme: 2 hafta önce</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="video-col">
+                    <a href="https://www.youtube.com/watch?v=8UVNT4wvIGY" target="_blank" class="video-card">
+                        <img src="https://i.ytimg.com/vi/8UVNT4wvIGY/hqdefault.jpg" alt="Video 15">
+                        <div class="card-body">
+                            <h5>Bad Guy - Billie Eilish</h5>
+                            <p>İzlenme: 2.8M | Yüklenme: 1 ay önce</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="video-col">
+                    <a href="https://www.youtube.com/watch?v=2nMf0KZkI9E" target="_blank" class="video-card">
+                        <img src="https://i.ytimg.com/vi/2nMf0KZkI9E/hqdefault.jpg" alt="Video 16">
+                        <div class="card-body">
+                            <h5>Stitches - Shawn Mendes</h5>
+                            <p>İzlenme: 1.5M | Yüklenme: 3 hafta önce</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="video-col">
+                    <a href="https://www.youtube.com/watch?v=nqZdpBAYz_M" target="_blank" class="video-card">
+                        <img src="https://i.ytimg.com/vi/nqZdpBAYz_M/hqdefault.jpg" alt="Video 17">
+                        <div class="card-body">
+                            <h5>Perfect - Ed Sheeran</h5>
+                            <p>İzlenme: 1.7M | Yüklenme: 4 hafta önce</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="video-col">
+                    <a href="https://www.youtube.com/watch?v=L0MK7qz13bU" target="_blank" class="video-card">
+                        <img src="https://i.ytimg.com/vi/L0MK7qz13bU/hqdefault.jpg" alt="Video 18">
+                        <div class="card-body">
+                            <h5>All of Me - John Legend</h5>
+                            <p>İzlenme: 2.3M | Yüklenme: 2 ay önce</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="video-col">
+                    <a href="https://www.youtube.com/watch?v=cQwL9ghm50Q" target="_blank" class="video-card">
+                        <img src="https://i.ytimg.com/vi/cQwL9ghm50Q/hqdefault.jpg" alt="Video 19">
+                        <div class="card-body">
+                            <h5>Someone Like You - Adele</h5>
+                            <p>İzlenme: 2M | Yüklenme: 3 hafta önce</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="video-col">
+                    <a href="https://www.youtube.com/watch?v=2YlJxUEZlKc" target="_blank" class="video-card">
+                        <img src="https://i.ytimg.com/vi/2YlJxUEZlKc/hqdefault.jpg" alt="Video 20">
+                        <div class="card-body">
+                            <h5>Back to You - Selena Gomez</h5>
+                            <p>İzlenme: 1.1M | Yüklenme: 1 hafta önce</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
